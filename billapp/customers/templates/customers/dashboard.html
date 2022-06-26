@@ -1,0 +1,39 @@
+{% extends 'users/base.html' %}
+{% block content %}
+<div class="content-section">
+    <div>
+        Total No. of customers : {{count}}
+    </div>
+
+    <div class="col-md-7 flex-md-fill">
+        <div class="col right" id="customer-list">
+          <h2 class="ps-1 pt-3" style="color: blue">Recently Added Customers</h2>
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  {% for field_name in columns %}
+                    {% if field_name != 'created_at' and field_name != 'app' %}
+                        <th scope="col">{{field_name}}</th>
+                    {% endif %}
+                  {% endfor %}
+                </tr>
+              </thead>
+              <tbody>
+                {% for i in details %}
+                <tr>
+                  <td>{{ i.id }}</td>
+                  <td>{{ i.name }}</td>
+                  <td>{{ i.email }}</td>
+                  <td>{{ i.contact_number }}</td>
+                  <td>{{ i.utility}}</td>
+                  <td>{{ i.address }}</td>
+                </tr>
+                {%endfor%}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+</div>
+{% endblock content %}

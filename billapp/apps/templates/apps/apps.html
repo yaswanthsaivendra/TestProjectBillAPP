@@ -1,0 +1,19 @@
+{% extends 'users/base.html' %}
+{% block content %}
+    <style>
+    .img {
+        width: 240px;
+        height: 160px;
+    }
+    </style>
+    <h1>BILL SNAP Home!!</h1>
+    {% for app in app_list %}
+        <article class="content-section">
+            <h3>{{ app.app_name }}</h3>
+            <div >
+            <a href="{% url 'dashboard' slug=app.slug %}"><img class="img" src="{{ app.app_image.url }}" alt="image"></a>
+            </div>
+            <a href="{% url 'delete-app' slug=app.slug %}"><button>Delete App</button></a>
+        </article>
+    {% endfor %}
+{% endblock content %}
