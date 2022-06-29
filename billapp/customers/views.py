@@ -70,7 +70,7 @@ def dashboard(request, slug):
     count = app.customer_set.count()
     columns=[field.name for field in Customer._meta.get_fields()]
     details = Customer.objects.all().filter(app=app)[:5]
-    return render(request, 'customers/dashboard.html', {'count' : count, 'columns':columns, 'details':details})
+    return render(request, 'customers/dashboard.html', {'count' : count, 'columns':columns, 'details':details, 'slug' : slug})
 
 def customerlist(request, slug):
     app = App.objects.get(slug=slug)

@@ -4,6 +4,10 @@
     <div>
         Total No. of customers : {{count}}
     </div>
+    <div>
+      <a href="{% url 'create-customer' slug %}"><button>Add Customer</button></a>
+      <a href="{% url 'customerlist' slug %}"><button>Customer List</button></a>
+    </div>
 
     <div class="col-md-7 flex-md-fill">
         <div class="col right" id="customer-list">
