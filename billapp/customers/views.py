@@ -1,8 +1,10 @@
+from distutils.command.upload import upload
 from django.shortcuts import redirect, render
 from apps.models import App
 from .models import Customer
 from .forms import CustomerCreateForm
 from django.contrib import messages
+from django.http import HttpResponse
 
 # Create your views here.
 
@@ -77,3 +79,37 @@ def customerlist(request, slug):
     columns=[field.name for field in Customer._meta.get_fields()]
     details = Customer.objects.all().filter(app=app)
     return render(request, 'customers/customerlist.html', {'columns':columns, 'details':details})
+
+
+def estimates(request, slug):
+    return HttpResponse('<h1>Estimates</h1>')
+
+def settings(request, slug):
+    return HttpResponse('<h1>Settings</h1>')
+
+def bulkupload(request, slug):
+    return HttpResponse('<h1>Bulk Upload</h1>')
+
+def manage_group(request, slug):
+    return HttpResponse('<h1>Manage Group</h1>')
+
+def pending_approvals(request, slug):
+    return HttpResponse('<h1>Pending Approvals</h1>')
+
+def messaging(request, slug):
+    return HttpResponse('<h1>Messaging</h1>')
+
+def collect_payments(request, slug):
+    return HttpResponse('<h1>Collect Payments</h1>')
+
+def transactions(request, slug):
+    return HttpResponse('<h1>Transactions</h1>')
+
+def plans(request, slug):
+    return HttpResponse('<h1>Plans</h1>')
+
+def requests(request, slug):
+    return HttpResponse('<h1>Requests</h1>')
+
+def get_support(request, slug):
+    return HttpResponse('<h1>Get Support</h1>')
